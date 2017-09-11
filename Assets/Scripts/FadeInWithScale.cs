@@ -22,11 +22,14 @@ public class FadeInWithScale : FadeInBase
         if (delay > 0)
             yield return new WaitForSeconds(delay);
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0;;i++)
         {
             transform.localScale -=
                 (transform.localScale - originalScale) * speedFactor;
 
+            if (Vector3.Distance(transform.localScale, originalScale) <= ErrorTolerance)
+                break;
+                
             yield return null;
         }
 

@@ -7,6 +7,8 @@ public class AnimBase : MonoBehaviour
     public float delay = 0.0f;
     public AnimSpeed speed = AnimSpeed.Normal;
 
+    protected static readonly float ErrorTolerance = 0.01f;
+
     protected float speedFactor
     {
         get

@@ -30,10 +30,13 @@ public class FadeInWithPosition : FadeInBase
         if (delay > 0)
             yield return new WaitForSeconds(delay);
 
-        for (int i = 0; i < 80; i++)
+        for (int i = 0;; i++)
         {
             rt.anchoredPosition +=
                 (originalPosition - rt.anchoredPosition) * speedFactor;
+
+            if (Vector2.Distance(rt.anchoredPosition, originalPosition) <= ErrorTolerance)
+                break;
 
             yield return null;
         }

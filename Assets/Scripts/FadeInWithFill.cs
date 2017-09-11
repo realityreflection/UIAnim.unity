@@ -25,10 +25,13 @@ public class FadeInWithFill : FadeInBase
         if (delay > 0)
             yield return new WaitForSeconds(delay);
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0;; i++)
         {
             image.fillAmount -=
                 (image.fillAmount - originalFill) * speedFactor;
+
+            if (Mathf.Abs(image.fillAmount - originalFill) <= ErrorTolerance)
+                break;
 
             yield return null;
         }
