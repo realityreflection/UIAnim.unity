@@ -20,6 +20,10 @@ public class FadeInWithFill : FadeInBase
     {
         image.fillAmount = 0;
     }
+    protected override void OnFinish()
+    {
+        image.fillAmount = originalFill;
+    }
     protected override IEnumerator AnimFunc()
     {
         if (delay > 0)

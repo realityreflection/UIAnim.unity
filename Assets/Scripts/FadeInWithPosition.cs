@@ -24,7 +24,10 @@ public class FadeInWithPosition : FadeInBase
         else
             rt.anchoredPosition = position;
     }
-
+    protected override void OnFinish()
+    {
+        rt.anchoredPosition = originalPosition;
+    }
     protected override IEnumerator AnimFunc()
     {
         if (delay > 0)

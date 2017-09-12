@@ -47,8 +47,17 @@ public class AnimBase : MonoBehaviour
     protected virtual void OnSetup()
     {
     }
+    protected virtual void OnFinish()
+    {
+    }
     protected virtual IEnumerator AnimFunc()
     {
         yield return null;
+    }
+
+    public void ForceFinish()
+    {
+        StopAllCoroutines();
+        OnFinish();
     }
 }

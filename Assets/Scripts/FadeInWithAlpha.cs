@@ -10,7 +10,11 @@ public class FadeInWithAlpha : FadeInBase
         foreach (var c in GetComponentsInChildren<Graphic>())
             c.CrossFadeAlpha(0, 0, true);
     }
-
+    protected override void OnFinish()
+    {
+        foreach (var c in GetComponentsInChildren<Graphic>())
+            c.CrossFadeAlpha(1, 0, true);
+    }
     protected override IEnumerator AnimFunc()
     {
         if (delay > 0)

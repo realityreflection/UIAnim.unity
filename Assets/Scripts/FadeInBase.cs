@@ -8,6 +8,10 @@ public class FadeInBase : AnimBase
     {
         PlayFadein();
     }
+    void OnDisable()
+    {
+        ForceFinish();
+    }
 
     public void PlayFadein()
     {

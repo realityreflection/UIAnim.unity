@@ -17,6 +17,10 @@ public class FadeInWithScale : FadeInBase
     {
         transform.localScale = initialScale;
     }
+    protected override void OnFinish()
+    {
+        transform.localScale = originalScale;
+    }
     protected override IEnumerator AnimFunc()
     {
         if (delay > 0)
